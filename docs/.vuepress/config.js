@@ -6,6 +6,7 @@ module.exports = {
         ['link', { rel: 'icon', href: '/logo.ico' }]
       ],
     themeConfig: {
+        
         // sidebarDepth:0,
         nav: [
             { 
