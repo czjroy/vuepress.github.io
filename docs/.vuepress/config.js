@@ -1,5 +1,5 @@
 module.exports = {
-    title: '奥飞文档',
+    title: '奥飞技术部文档',
     description: '随意些点描述',
     base: '/vuepress.github.io/' ,
     sidebarDepth:2,
