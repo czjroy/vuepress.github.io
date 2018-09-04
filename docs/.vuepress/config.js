@@ -1,22 +1,7 @@
-function genSidebarConfig(title) {
-    return [{
-        title,
-        collapsable: false,
-        children: [
-            '',
-            'html-standard',
-            'css-standard',
-            'js-standard',
-            'git-standard'
-        ]
-    }]
-}
-
-
-
 module.exports = {
-    title: 'Hello VuePress34534',
-    description: 'Just playing around',
+    title: '奥飞文档',
+    description: '随意些点描述',
+    sidebarDepth:2,
     head: [
         ['link', { rel: 'icon', href: '/logo.ico' }]
       ],
@@ -31,7 +16,12 @@ module.exports = {
                 ] 
             },
             { text: '后端', link: '/a/' },
-            { text: '前端', link: '/development/' },
+            {   text: '前端',
+                items: [
+                    { text: '前端规范', link: '/web/' },
+                    // { text: '海外融合SDK', link: '/sdk/' }
+            ]
+            },
             { text: 'bi', link: '/notes/' },
             {
                 text: 'Languages',
@@ -47,60 +37,28 @@ module.exports = {
             }
         ],
         sidebar: {
-            '/sdk/': [
-                '',
-                'roleLogin',
+            '/sdk/':[
                 {
-                  title:'前端',
-                  collapsable: true,
-                  children:[
-                    'README5',
-                    'README1',
-                    'README2',
-                    'README3',
-                    'README4',
-                    'one'
+                  title:'海外融合SDK',
+                  collapsable: false,
+                  children: [
+                      '',
+                      'roleLogin',
+                      
                   ]
-                },
-                {
-                    title:'后端',
-                    collapsable: true,
-                    children:[
-                      'README5',
-                      'README1',
-                      'README2',
-                      'README3',
-                      'README4',
-                      'one'
-                    ]
-                  }
+                }
               ],
-              '': [
+              '/web/':[
+                //   "",
                 {
-                  title:'前端',
-                  collapsable: true,
-                  children:[
-                    'README5',
-                    'README1',
-                    'README2',
-                    'README3',
-                    'README4',
-                    'one'
+                  title:'前端规范',
+                  collapsable: false,
+                  children: [
+                      ''
                   ]
-                },
-                {
-                    title:'后端',
-                    collapsable: true,
-                    children:[
-                      'README5',
-                      'README1',
-                      'README2',
-                      'README3',
-                      'README4',
-                      'one'
-                    ]
-                  }
+                }
               ]
+           
         }
 
         // sidebar: {
@@ -123,3 +81,22 @@ module.exports = {
         // }
     }
 }
+
+
+function genSidebarConfig (title) {
+    return [
+      {
+        title,
+        collapsable: false,
+        children: [
+            '',
+            'README5',
+            'README1',
+            'README2',
+            'README3',
+            'README4',
+            'one'
+        ]
+      }
+    ]
+  }

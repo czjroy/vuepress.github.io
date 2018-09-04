@@ -1,52 +1,65 @@
----
-home: "123"
-heroImage: /hero.png
-actionText: Get Started →
-actionLink: /guide/
-features:
-- title: Simplicity First
-  details: Minimal setup with markdown-centered project structure helps you focus on writing.
-- title: Vue-Powered
-  details: Enjoy the dev experience of Vue + webpack, use Vue components in markdown, and develop custom themes with Vue.
-- title: Performant
-  details: VuePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
-footer: MIT Licensed | Copyright © 2018-present Evan You
+### 角色登录
 ---
 
+**接口描述：**
 
-# 角色登录
----
+* 角色登录
 
-## 接口描述：
+**请求URL(正式)：**
 
-{{ 1 + 1 }}
-{{ $page }}
-
-
-<script>
+* ```https://sea-joysdk-dev.15166.com/role/v1/login```
 
 
-    export default {
-        mounted () {
-            // import('../.vuepress/config').then(module => {
-            //     console.log(module)
+**请求方式：**
 
-            //     module.default.title = "!23123"
-            // })
+* POST
 
-            var a = this.$site
-            a.title = "1234234"
-            this.$site = a
-            
-            console.log(a.title)
-            
-        }
-    }
-    // import config from "../.vuepress/config"
-    // console.log(config)
-    // config.title = "!23123"
-</script>
+**加密方式：**
 
-::: v-pre
-`{{ This will be displayed as-is }}`
-:::
+* MD5
+
+**加密规则：**
+* 将全部请求参数按a-z 排序
+* 排序后,拼接成 value1+value2+…+```Appkey```
+* md5(value1+value2+…+```Appkey```)
+* ```+符号为连接符不实际接入字符串```
+
+**请求参数：**
+
+| 参数名     | 必填 | 类型      | 说明  | 实例 |
+| ------------- | ---- | ----------- | ------- | ---- |
+| appID         | 是  | 长长的标题3 | title 4 |      |
+| channelID     | 是  |             |         |      |
+| subChannelID  | 是  | column 3    |         |      |
+| serverID      | 是  |             |         |      |
+| channelRoleID | 是  |             |         |      |
+| channelUserID | 是  |             |         |      |
+| serverName    | 是  |             |         |      |
+| roleLevel     | 是  |             |         |      |
+| vipLevel      | 是  |             |         |      |
+| balance       | 是  |             |         |      |
+| guildName     |  是    |             |         |      |
+| guildID       |  是    |             |         |      |
+| fighting      |  是    |             |         |      |
+| commonData    |   是   |             |         |      |
+| timestamp     |   是   |             |         |      |
+| signature     |   是   |             |         |      |
+
+**返回示例**
+```js
+  {
+    "code": 0,
+    "msg": "success",
+    "data": {},
+  }
+```
+
+```注意：```
+
+* 错误码说明：
+
+    10011-app配置错误
+
+    10012-渠道关闭登陆
+
+    10001-角色所属用户不存在
