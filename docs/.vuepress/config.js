@@ -6,7 +6,7 @@ module.exports = {
         ['link', { rel: 'icon', href: '/logo.ico' }]
       ],
     themeConfig: {
-        
+
         // sidebarDepth:0,
         nav: [
             { 
@@ -16,24 +16,11 @@ module.exports = {
                     { text: '海外融合SDK', link: '/sdk/' }
                 ] 
             },
-            { text: '后端', link: '/a/' },
+            // { text: '后端', link: '/a/' }, 
             {   text: '前端',
                 items: [
                     { text: '前端规范', link: '/web/' },
                     // { text: '海外融合SDK', link: '/sdk/' }
-            ]
-            },
-            { text: 'bi', link: '/notes/' },
-            {
-                text: 'Languages',
-                
-            },
-            // 下拉列表的配置
-            {
-            text: 'Languages',
-            items: [
-                { text: 'Chinese', link: '/language/chinese' },
-                { text: 'English', link: '/language/English' }
             ]
             }
         ],
@@ -83,21 +70,3 @@ module.exports = {
     }
 }
 
-
-function genSidebarConfig (title) {
-    return [
-      {
-        title,
-        collapsable: false,
-        children: [
-            '',
-            'README5',
-            'README1',
-            'README2',
-            'README3',
-            'README4',
-            'one'
-        ]
-      }
-    ]
-  }
